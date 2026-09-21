@@ -154,23 +154,23 @@ manualmente cada herramienta cuando la aplicación lo solicitó.
 
 | # | Operación | Prompt usado | Herramienta invocada | Capturas |
 |---|---|---|---|---|
-| 1 | Listar directorio | "Lista el contenido de `mcp-workspace`" (ruta completa) | `list_directory` | `Imagenes/aprobacion.png`, `Imagenes/Directorio exitoso.png` |
-| 2 | Leer archivo existente | "Lee el contenido de `notas.txt`" | `read_text_file` | `Imagenes/parte2.png` |
-| 3 | Crear archivo y escribir contenido | "Crea un archivo `saludo.txt` con un texto de saludo" | `write_file` | `Imagenes/Yacreado.png` |
-| 4 | Modificar archivo existente | "Agrega una segunda línea a `saludo.txt`" | `edit_file` | `Imagenes/verificaredicion.png`, `Imagenes/permisoeditar.png`, `Imagenes/Editada.png` |
-| 5 | Buscar archivo | "Busca archivos cuyo nombre contenga 'saludo'" | `search_files` | `Imagenes/Permisobusca.png`, `Imagenes/busqueda.png` |
+| 1 | Listar directorio | "Lista el contenido de `mcp-workspace`" (ruta completa) | `list_directory` | `imagenes/aprobacion.png`, `imagenes/Directorioexitoso.png` |
+| 2 | Leer archivo existente | "Lee el contenido de `notas.txt`" | `read_text_file` | `imagenes/parte2.png` |
+| 3 | Crear archivo y escribir contenido | "Crea un archivo `saludo.txt` con un texto de saludo" | `write_file` | `imagenes/Yacreado.png` |
+| 4 | Modificar archivo existente | "Agrega una segunda línea a `saludo.txt`" | `edit_file` | `imagenes/verificaredicion.png`, `imagenes/permisoeditar.png`, `imagenes/Editada.png` |
+| 5 | Buscar archivo | "Busca archivos cuyo nombre contenga 'saludo'" | `search_files` | `imagenes/Permisobusca.png`, `imagenes/busqueda.png` |
 
 #### Evidencia fotográfica de las operaciones
 
-![Aprobación de List Directory](Imagenes/aprobacion.png)
-![Resultado: listar directorio](Imagenes/Directorio%20exitoso.png)
-![Lectura de archivo existente](Imagenes/parte2.png)
-![Creación de archivo nuevo](Imagenes/Yacreado.png)
-![Aprobación de edición](Imagenes/permisoeditar.png)
-![Verificación de edición](Imagenes/verificaredicion.png)
-![Archivo modificado](Imagenes/Editada.png)
-![Aprobación de búsqueda](Imagenes/Permisobusca.png)
-![Resultado de búsqueda](Imagenes/busqueda.png)
+![Aprobación de List Directory](imagenes/aprobacion.png)
+![Resultado: listar directorio](imagenes/Directorioexitoso.png)
+![Lectura de archivo existente](imagenes/parte2.png)
+![Creación de archivo nuevo](imagenes/Yacreado.png)
+![Aprobación de edición](imagenes/permisoeditar.png)
+![Verificación de edición](iagenes/verificaredicion.png)
+![Archivo modificado](imagenes/Editada.png)
+![Aprobación de búsqueda](imagenes/Permisobusca.png)
+![Resultado de búsqueda](imagenes/busqueda.png)
 
 **Notas de comportamiento observadas durante las pruebas** (relevantes para entender cómo 
 opera realmente el servidor):
@@ -199,7 +199,7 @@ accesible es `mcp-workspace`, y `README.md` se encuentra un nivel por encima, en
 
 **Capturas:** `Imagenes/Limite de seguridad.png`, `Imagenes/Pruebaexitosa.png`
 
-![Prueba del límite de seguridad](Imagenes/Limite%20de%20seguridad.png)
+![Prueba del límite de seguridad](Imagenes/Limitedeseguridad.png)
 ![Explicación del rechazo por parte de Claude](Imagenes/Pruebaexitosa.png)
 
 **Mecanismo que impidió la operación:** el rechazo no depende de que el modelo "decida" no 
