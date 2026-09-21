@@ -73,7 +73,7 @@ LLM / Agente
 
 ## Parte 2: Implementación 
 
-* **Elección del cliente: Claude Desktop**
+### 1. Elección del cliente: Claude Desktop
 
 Se eligió **Claude Desktop** como cliente MCP porque ofrece soporte nativo del protocolo sin 
 necesidad de extensiones adicionales, expone claramente el catálogo de servidores conectados 
@@ -81,7 +81,7 @@ desde su panel de configuración, y solicita confirmación explícita de la pers
 de ejecutar cualquier herramienta — lo cual permitió documentar tanto las operaciones normales 
 como el comportamiento exacto del límite de seguridad que exige esta práctica.
 
-* **Instalación y configuración**
+### 2. Instalación y configuración
 
 **Sistema operativo:** Windows 11
 
@@ -147,7 +147,7 @@ con cerrar la ventana**. Volver a abrirla.
 Ir a **Settings - Desarrollador**. Debe aparecer una tarjeta con el nombre `filesystem` y el 
 estado **"En ejecución"**.
 
-* **Operaciones demostradas**
+### 3. Operaciones demostradas
 
 Cada operación se solicitó en lenguaje natural desde el chat de Claude Desktop, aprobando 
 manualmente cada herramienta cuando la aplicación lo solicitó.
@@ -155,10 +155,22 @@ manualmente cada herramienta cuando la aplicación lo solicitó.
 | # | Operación | Prompt usado | Herramienta invocada | Capturas |
 |---|---|---|---|---|
 | 1 | Listar directorio | "Lista el contenido de `mcp-workspace`" (ruta completa) | `list_directory` | `Imagenes/aprobacion.png`, `Imagenes/Directorio exitoso.png` |
-| 2 | Leer archivo existente | "Lee el contenido de `notas.txt`" | `read_text_file` | `Imagenes/parte2.png`|
-| 3 | Crear archivo y escribir contenido | "Crea un archivo `saludo.txt` con un texto de saludo" | `write_file` | `Yacreado.png` |
-| 4 | Modificar archivo existente | "Agrega una segunda línea a `saludo.txt`" | `edit_file` | `Imagenes/verificaredicion.png`,`Imagenes/permisoeditar.png`, `Imagenes/Editada.png`  |
-| 5 | Buscar archivo | "Busca archivos cuyo nombre contenga 'saludo'" | `search_files` | `Imagenes/Permisobusca`, `Imagenes/busqueda.png` |
+| 2 | Leer archivo existente | "Lee el contenido de `notas.txt`" | `read_text_file` | `Imagenes/parte2.png` |
+| 3 | Crear archivo y escribir contenido | "Crea un archivo `saludo.txt` con un texto de saludo" | `write_file` | `Imagenes/Yacreado.png` |
+| 4 | Modificar archivo existente | "Agrega una segunda línea a `saludo.txt`" | `edit_file` | `Imagenes/verificaredicion.png`, `Imagenes/permisoeditar.png`, `Imagenes/Editada.png` |
+| 5 | Buscar archivo | "Busca archivos cuyo nombre contenga 'saludo'" | `search_files` | `Imagenes/Permisobusca.png`, `Imagenes/busqueda.png` |
+
+#### Evidencia fotográfica de las operaciones
+
+![Aprobación de List Directory](Imagenes/aprobacion.png)
+![Resultado: listar directorio](Imagenes/Directorio%20exitoso.png)
+![Lectura de archivo existente](Imagenes/parte2.png)
+![Creación de archivo nuevo](Imagenes/Yacreado.png)
+![Aprobación de edición](Imagenes/permisoeditar.png)
+![Verificación de edición](Imagenes/verificaredicion.png)
+![Archivo modificado](Imagenes/Editada.png)
+![Aprobación de búsqueda](Imagenes/Permisobusca.png)
+![Resultado de búsqueda](Imagenes/busqueda.png)
 
 **Notas de comportamiento observadas durante las pruebas** (relevantes para entender cómo 
 opera realmente el servidor):
@@ -173,10 +185,12 @@ opera realmente el servidor):
   `edit_file` aplica una edición puntual (tipo diff) sobre un archivo ya existente, sin 
   sobrescribir todo su contenido.
 
-* **Prueba del límite de seguridad**
+### 4. Prueba del límite de seguridad
 
+**Prompt usado:**
+```
 Lee el contenido del archivo C:\Users\LENOVO\Documents\GitHub\Tarea1\README.md
-
+```
 (una ruta un nivel por encima de `mcp-workspace`, fuera del directorio autorizado)
 
 **Resultado obtenido:** la llamada a la herramienta falló. El servidor rechazó la solicitud 
@@ -184,6 +198,9 @@ indicando que la ruta está fuera de los directorios permitidos, ya que el únic
 accesible es `mcp-workspace`, y `README.md` se encuentra un nivel por encima, en `Tarea1/`.
 
 **Capturas:** `Imagenes/Limite de seguridad.png`, `Imagenes/Pruebaexitosa.png`
+
+![Prueba del límite de seguridad](Imagenes/Limite%20de%20seguridad.png)
+![Explicación del rechazo por parte de Claude](Imagenes/Pruebaexitosa.png)
 
 **Mecanismo que impidió la operación:** el rechazo no depende de que el modelo "decida" no 
 hacerlo ni de que la persona usuaria niegue un permiso desde la interfaz — de hecho, en esta 
@@ -195,6 +212,8 @@ de seguridad de este documento: el alcance limitado a un directorio es el mecani
 protección, independiente del comportamiento del modelo. El propio Claude lo reconoció 
 explícitamente en su respuesta, aclarando que se trata de "una restricción de seguridad de la 
 configuración del servidor, y no algo que yo pueda saltarme".
+
+---
 
 ## Conclusiones personales
 
@@ -215,7 +234,6 @@ decide. En una API tradicional esa decisión está fija en el código desde ante
 MCP, el modelo la toma en el momento, según lo que la persona pidió en lenguaje natural.
 
 ---
-
 ## Referencias bibliográficas 
 
 * Stryker, C. (2025, noviembre 26). Modelos de lenguaje de gran tamaño. Ibm.com. https://www.ibm.com/mx-es/think/topics/large-language-models
@@ -253,3 +271,7 @@ MCP, el modelo la toma en el momento, según lo que la persona pidió en lenguaj
 * Tools. (s/f). Modelcontextprotocol.info. Recuperado el 21 de septiembre de 2026, de https://modelcontextprotocol.info/docs/concepts/tools/
 * What is Model Context Protocol (MCP)? A guide. (s/f). Google Cloud. Recuperado el 21 de septiembre de 2026, de https://cloud.google.com/discover/what-is-model-context-protocol
 * Beura, R. K. (2025, octubre 4). Top 5 MCP Server Platforms: A Comprehensive Developer’s Guide to the model context protocol…. Medium. https://medium.com/@ommranjit/top-5-mcp-server-platforms-a-comprehensive-developers-guide-to-the-model-context-protocol-35772bab5312
+
+
+
+
