@@ -13,9 +13,7 @@
 ## Resumen de la actividad
 
 Este repositorio documenta la investigación y la implementación práctica del Model Context 
-Protocol (MCP), un estándar abierto que permite a los modelos de lenguaje descubrir y utilizar 
-herramientas externas en tiempo de ejecución, en lugar de depender de integraciones fijas 
-escritas de antemano en el código como ocurre con una API tradicional.
+Protocol (MCP), un estándar abierto que permite a los modelos de lenguaje descubrir y utilizar herramientas externas en tiempo de ejecución, en lugar de depender de integraciones fijas escritas de antemano en el código como ocurre con una API tradicional.
 
 La **Parte 1** (carpeta `docs/`) cubre la evolución de los modelos de lenguaje hacia los LLM y 
 los modelos con razonamiento explícito, el problema del aislamiento de un LLM respecto al 
@@ -154,26 +152,25 @@ manualmente cada herramienta cuando la aplicación lo solicitó.
 
 | # | Operación | Prompt usado | Herramienta invocada | Capturas |
 |---|---|---|---|---|
-| 1 | Listar directorio | "Lista el contenido de `mcp-workspace`" (ruta completa) | `list_directory` | `imagenes/aprobacion.png`, `imagenes/Directorioexitoso.png` |
-| 2 | Leer archivo existente | "Lee el contenido de `notas.txt`" | `read_text_file` | `imagenes/parte2.png` |
-| 3 | Crear archivo y escribir contenido | "Crea un archivo `saludo.txt` con un texto de saludo" | `write_file` | `imagenes/Yacreado.png` |
-| 4 | Modificar archivo existente | "Agrega una segunda línea a `saludo.txt`" | `edit_file` | `imagenes/verificaredicion.png`, `imagenes/permisoeditar.png`, `imagenes/Editada.png` |
-| 5 | Buscar archivo | "Busca archivos cuyo nombre contenga 'saludo'" | `search_files` | `imagenes/Permisobusca.png`, `imagenes/busqueda.png` |
+| 1 | Listar directorio | "Lista el contenido de `mcp-workspace`" (ruta completa) | `list_directory` | `Imagenes/aprobacion.png`, `Imagenes/Directorioexitoso.png` |
+| 2 | Leer archivo existente | "Lee el contenido de `notas.txt`" | `read_text_file` | `Imagenes/parte2.png` |
+| 3 | Crear archivo y escribir contenido | "Crea un archivo `saludo.txt` con un texto de saludo" | `write_file` | `Imagenes/Yacreado.png` |
+| 4 | Modificar archivo existente | "Agrega una segunda línea a `saludo.txt`" | `edit_file` | `Imagenes/verificaredicion.png`, `Imagenes/permisoeditar.png`, `Imagenes/Editada.png` |
+| 5 | Buscar archivo | "Busca archivos cuyo nombre contenga 'saludo'" | `search_files` | `Imagenes/Permisobusca.png`, `i}Imagenes/busqueda.png` |
 
 #### Evidencia fotográfica de las operaciones
 
-![Aprobación de List Directory](imagenes/aprobacion.png)
-![Resultado: listar directorio](imagenes/Directorioexitoso.png)
-![Lectura de archivo existente](imagenes/parte2.png)
-![Creación de archivo nuevo](imagenes/Yacreado.png)
-![Aprobación de edición](imagenes/permisoeditar.png)
-![Verificación de edición](iagenes/verificaredicion.png)
-![Archivo modificado](imagenes/Editada.png)
-![Aprobación de búsqueda](imagenes/Permisobusca.png)
-![Resultado de búsqueda](imagenes/busqueda.png)
+![Aprobación de List Directory](Imagenes/aprobacion.png)
+![Resultado: listar directorio](Imagenes/Directorioexitoso.png)
+![Lectura de archivo existente](Imagenes/parte2.png)
+![Creación de archivo nuevo](Imagenes/Yacreado.png)
+![Aprobación de edición](Imagenes/permisoeditar.png)
+![Verificación de edición](Imagenes/verificaredicion.png)
+![Archivo modificado](Imagenes/Editada.png)
+![Aprobación de búsqueda](Imagenes/Permisobusca.png)
+![Resultado de búsqueda](Imagenes/busqueda.png)
 
-**Notas de comportamiento observadas durante las pruebas** (relevantes para entender cómo 
-opera realmente el servidor):
+**Notas de comportamiento observadas durante las pruebas** (relevantes para entender cómo opera realmente el servidor):
 
 - **Rutas relativas:** al pedir listar `mcp-workspace` usando solo ese nombre (ruta relativa), 
   el servidor la resolvió *dentro* del propio directorio permitido, buscando 
@@ -182,8 +179,7 @@ opera realmente el servidor):
 - **Patrones de búsqueda:** `search_files` espera un **patrón glob**, no un texto simple. Buscar 
   `saludo` no devolvió resultados; el patrón `**/*saludo*` sí encontró el archivo correctamente.
 - **write_file vs. edit_file:** `write_file` crea o sobrescribe un archivo completo, mientras que 
-  `edit_file` aplica una edición puntual (tipo diff) sobre un archivo ya existente, sin 
-  sobrescribir todo su contenido.
+  `edit_file` aplica una edición puntual (tipo diff) sobre un archivo ya existente, sin sobrescribir todo su contenido.
 
 ### 4. Prueba del límite de seguridad
 
