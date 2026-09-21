@@ -152,7 +152,7 @@ manualmente cada herramienta cuando la aplicación lo solicitó.
 
 | # | Operación | Prompt usado | Herramienta invocada | Capturas |
 |---|---|---|---|---|
-| 1 | Listar directorio | "Lista el contenido de `mcp-workspace`" (ruta completa) | `list_directory` | `Imagenes/aprobacion.png`, `Imagenes/Directorioexitoso.png` |
+| 1 | Listar directorio | "Lista el contenido de `mcp-workspace`" (ruta completa) | `list_directory` | `Imagenes/aprobacion.png`, `Imagenes/yo.png` |
 | 2 | Leer archivo existente | "Lee el contenido de `notas.txt`" | `read_text_file` | `Imagenes/parte2.png` |
 | 3 | Crear archivo y escribir contenido | "Crea un archivo `saludo.txt` con un texto de saludo" | `write_file` | `Imagenes/Yacreado.png` |
 | 4 | Modificar archivo existente | "Agrega una segunda línea a `saludo.txt`" | `edit_file` | `Imagenes/verificaredicion.png`, `Imagenes/permisoeditar.png`, `Imagenes/Editada.png` |
@@ -161,7 +161,7 @@ manualmente cada herramienta cuando la aplicación lo solicitó.
 #### Evidencia fotográfica de las operaciones
 
 ![Aprobación de List Directory](Imagenes/aprobacion.png)
-![Resultado: listar directorio](Imagenes/Directorioexitoso.png)
+![Resultado: listar directorio](Imagenes/yo.png)
 ![Lectura de archivo existente](Imagenes/parte2.png)
 ![Creación de archivo nuevo](Imagenes/Yacreado.png)
 ![Aprobación de edición](Imagenes/permisoeditar.png)
@@ -193,9 +193,9 @@ Lee el contenido del archivo C:\Users\LENOVO\Documents\GitHub\Tarea1\README.md
 indicando que la ruta está fuera de los directorios permitidos, ya que el único directorio 
 accesible es `mcp-workspace`, y `README.md` se encuentra un nivel por encima, en `Tarea1/`.
 
-**Capturas:** `Imagenes/Limite de seguridad.png`, `Imagenes/Pruebaexitosa.png`
+**Capturas:** `Imagenes/limite.png`, `Imagenes/Pruebaexitosa.png`
 
-![Prueba del límite de seguridad](Imagenes/Limitedeseguridad.png)
+![Prueba del límite de seguridad](Imagenes/limite.png)
 ![Explicación del rechazo por parte de Claude](Imagenes/Pruebaexitosa.png)
 
 **Mecanismo que impidió la operación:** el rechazo no depende de que el modelo "decida" no 
