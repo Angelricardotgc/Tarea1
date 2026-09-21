@@ -1,0 +1,2 @@
+Hola, este archivo fue creado por Claude a través de MCP
+Esta línea fue agregada para probar la edición de archivos
