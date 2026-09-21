@@ -152,7 +152,7 @@ manualmente cada herramienta cuando la aplicación lo solicitó.
 
 | # | Operación | Prompt usado | Herramienta invocada | Capturas |
 |---|---|---|---|---|
-| 1 | Listar directorio | "Lista el contenido de `mcp-workspace`" (ruta completa) | `list_directory` | `Imagenes/aprobacion.png`, `Imagenes/yo.png` |
+| 1 | Listar directorio | "Lista el contenido de `mcp-workspace`" (ruta completa) | `list_directory` | `Imagenes/apro.png`, `Imagenes/yo.png` |
 | 2 | Leer archivo existente | "Lee el contenido de `notas.txt`" | `read_text_file` | `Imagenes/parte2.png` |
 | 3 | Crear archivo y escribir contenido | "Crea un archivo `saludo.txt` con un texto de saludo" | `write_file` | `Imagenes/Yacreado.png` |
 | 4 | Modificar archivo existente | "Agrega una segunda línea a `saludo.txt`" | `edit_file` | `Imagenes/verificaredicion.png`, `Imagenes/permisoeditar.png`, `Imagenes/Editada.png` |
@@ -160,7 +160,7 @@ manualmente cada herramienta cuando la aplicación lo solicitó.
 
 #### Evidencia fotográfica de las operaciones
 
-![Aprobación de List Directory](Imagenes/aprobacion.png)
+![Aprobación de List Directory](Imagenes/apro.png)
 ![Resultado: listar directorio](Imagenes/yo.png)
 ![Lectura de archivo existente](Imagenes/parte2.png)
 ![Creación de archivo nuevo](Imagenes/Yacreado.png)
