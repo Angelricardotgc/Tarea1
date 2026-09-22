@@ -2,6 +2,13 @@
 
 * **Modelo host / cliente / servidor**
 
+```mermaid
+graph LR
+    A[Modelo de IA / LLM] <--> B["Host / Cliente MCP<br/>(Claude Desktop)"]
+    B <-- "stdio<br/>(transmisión local)" --> C[Servidor MCP<br/>de Archivos]
+    C <--> D[("mcp-workspace/<br/>(directorio autorizado)")]
+```
+
 1. Host
 Es la aplicación con la que interactúa la persona usuaria; la que contiene al modelo de lenguaje y coordina todo. El host es responsable de gestionar el ciclo de vida de las conexiones, pedir consentimiento al usuario antes de ejecutar una herramienta, y aplicar las políticas de seguridad (por ejemplo, qué servidores están permitidos).
 
